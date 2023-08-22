@@ -15,4 +15,18 @@ describe("Duel Duo tests", () => {
     await driver.get("http://localhost:8000");
     await driver.wait(until.titleIs("Duel Duo"), 1000);
   });
+  test("Draw button brings up bots", async () => {
+    await driver.get("http://localhost:8000");
+    await driver.findElement(By.id("Draw")).sendKeys("choices", key.Return);
+    await driver.wait(until.idIs("choices"),1000)
+  });
+  test("Draw button brings up bots", async () => {
+    await driver.get("http://localhost:8000");
+    await driver.findElement(By.id("Add to Duo")).sendKeys("player-duo", key.Return);
+    await driver.wait(until.idIs("player-duo"),1000)
+  });
+  // test("bot added too duo goes to your duo", async () => {
+  //   await driver.get("http://localhost:3000");
+  //   await driver.wait(until.titleIs("Duel Duo"), 1000);
+  // });
 });

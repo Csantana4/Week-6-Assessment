@@ -3,15 +3,16 @@ const express = require("express");
 const bots = require("./src/botsData");
 const shuffle = require("./src/shuffle");
 
+const app = express();
 app.use(express.static(`${__dirname}/public`))
 
 
-// var Rollbar = require('rollbar')
-// var rollbar = new Rollbar({
-//   accessToken: '',
-//   captureUncaught: true,
-//   captureUnhandledRejections: true,
-// })
+ var Rollbar = require('rollbar')
+ var rollbar = new Rollbar({
+   accessToken: '',
+   captureUncaught: true,
+  captureUnhandledRejections: true,
+})
 
 // rollbar.log('Hello world!')
 
@@ -20,7 +21,6 @@ const playerRecord = {
   wins: 0,
   losses: 0,
 };
-const app = express();
 
 app.use(express.json());
 

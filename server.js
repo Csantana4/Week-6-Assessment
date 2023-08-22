@@ -7,14 +7,16 @@ const app = express();
 app.use(express.static(`${__dirname}/public`))
 
 
- var Rollbar = require('rollbar')
- var rollbar = new Rollbar({
-   accessToken: '',
-   captureUncaught: true,
+// include and initialize the rollbar library with your access token
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: 'c7fce6d45980454fb03b394e192d826a',
+  captureUncaught: true,
   captureUnhandledRejections: true,
 })
 
-// rollbar.log('Hello world!')
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
 
 
 const playerRecord = {
